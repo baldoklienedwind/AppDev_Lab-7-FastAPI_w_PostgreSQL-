@@ -26,7 +26,6 @@ class BookOut(BookCreate):
     class Config:
         orm_mode = True
 
-# Routes
 @app.get("/books", response_model=List[BookOut])
 def get_books(db: Session = Depends(get_db)):
     return db.query(Book).all()
